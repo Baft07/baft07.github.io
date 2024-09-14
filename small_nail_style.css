@@ -2,24 +2,28 @@ body { background-color: #EEC8C7;
 }
 
 h1 {
-    text-align: left;
+    text-align: center;
     color: black;
-    font-size: 20px;
+    font-size: 40px;
+    margin-top: 0px;
 }
 
 .logo
 {
 margin-top: 0px;
 margin-left: 0px;
+
 }
 
-
+.prix{
+    margin-left: 75px;
+    line-height: 50px;
+}
 
 /*Reset CSS*/
 *{
     margin: 0px;
     padding: 0px;
-    font-family: Avenir, sans-serif;
 }
 
 nav{
@@ -59,9 +63,3 @@ nav a:hover{
     color:#EEC8C7;
     border-bottom: 5px solid white;
 }
-
-.conteneur{
-  margin: 0px 20px;
-  height: 250px;
-}
-
