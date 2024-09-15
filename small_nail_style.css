@@ -119,8 +119,8 @@ footer {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 1.5em;
-    width: 30%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -147,7 +147,29 @@ footer {
     list-style: none;
     padding: 0;
     margin: 0;
+    text-align: center;
 }
 .pricing-card ul li {
     margin: 0.5em 0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .text p {
+        font-size: 1.2em;
+    }
+    nav ul li {
+        display: block;
+        margin: 0.5em 0;
+    }
+    p {
+        padding: 0.5em;
+    }
+    p img {
+        width: 80px;
+        height: 80px;
+    }
 }
