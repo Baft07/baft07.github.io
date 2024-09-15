@@ -1,18 +1,47 @@
-body { background-color: #EEC8C7;
+header {
+    background-color: #000;
+    color: #EEC7C8;
+    padding:0 1em 0;
+    border-bottom: 2px solid #EEC7C8;
+}
+header h1 {
+    text-emphasis-color: #eec7c8;
+    margin: 0px;
+    font-size: 3em;
+}
+header p {
+    font-size: 2em;
+    margin: 0;
 }
 
-h1 {
-    text-align: center;
-    color: black;
-    font-size: 40px;
-    margin-top: 0px;
+body { 
+    background-color: #EEC8C7;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    margin-left: 400px;
+    gap: 20px; /* Espace entre les images et le texte */
+}
+.image-ronde {
+    width: 100px; /* Ajustez la taille selon vos besoins */
+    height: 100px; /* Assurez-vous que la hauteur et la largeur sont égales pour garder la forme ronde */
+    border-radius: 50%; /* Transforme l'image en cercle */
+    overflow: hidden; /* Masque toute partie de l'image qui dépasse du cercle */
+    display: block; /* S'assure que l'image est affichée en bloc */
+    object-fit: cover; /* Ajuste l'image pour couvrir l'espace sans déformer l'image */
+}
+.text {
+    max-width: 300px; /* Largeur maximale du texte */
+    color: #eec7c8;
+    font-size: 1.2em;
 }
 
 .logo
 {
 margin-top: 0px;
 margin-left: 0px;
-
 }
 
 .prix{
@@ -62,4 +91,63 @@ nav a{
 nav a:hover{
     color:#EEC8C7;
     border-bottom: 5px solid white;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.container_2 {
+    display: flex;
+    margin-left:250px;
+    gap: 20px; /* Espace entre les images et le texte */
+}
+
+.pricing-table {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.pricing-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5em;
+    width: 30%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.pricing-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+.pricing-card h2 {
+    margin-top: 0;
+    font-size: 1.8em;
+    color: #000;
+}
+.pricing-card p {
+    font-size: 1.2em;
+    margin: 0.5em 0;
+    color: #666;
+}
+.pricing-card .price {
+    font-size: 2em;
+    color: #EEC7C8;
+    margin: 0.5em 0;
+}
+.pricing-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.pricing-card ul li {
+    margin: 0.5em 0;
 }
