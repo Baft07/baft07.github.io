@@ -152,13 +152,3 @@ footer {
 .pricing-card ul li {
     margin: 0.5em 0;
 }
-
-/* Media Queries */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
-    .text p {
-        font-size: 1.2em;
-    }
-}
