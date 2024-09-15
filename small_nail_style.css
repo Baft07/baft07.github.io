@@ -157,9 +157,11 @@ footer {
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
+        margin-left: 375PX
     }
     .text p {
         font-size: 1.2em;
+        margin-left: 300px
     }
     nav ul li {
         display: block;
