@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tri Selection</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="projets">
+    <header>
+        <nav>
+            <div>
+                <a href="projets.html">Projets</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h1 style="text-align: center; color: rgb(221, 239, 255); font-size: 400%;">Tri Selection</h1>
+        <p style="text-align: left; color: rgb(221, 239, 255); font-size: 150%; margin: 0 20px;">
+            Le tri selection est un algorithme de tri simple et intuitif. Il consiste à chercher le minimum
+            dans le tableau et à le placer en début de tableau. L'algorithme est répété n-1 fois pour un tableau de taille n.
+        </p>
+    <div style="border: 2px solid rgb(221, 239, 255); padding: 10px; margin: 20px;">
+        <pre style="text-align: left; color: rgb(221, 239, 255); font-size: 150%; margin: 0;">
+            def tri_selection(l : list) -> list:
+                for i in range(len(l)-1):
+                    min = i
+                    for j in range(i,len(l)):
+                        if l[j] < l[min]:
+                            min = j
+                        l[min],l[i] = l[i],l[min]
+                return l
+        </pre>
+    </div>
+    </main>
+</body>
+</html>
