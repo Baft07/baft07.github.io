@@ -7,9 +7,13 @@ body {
     text-size-adjust: 100%;
 }
 
-.home, .projets {
+.home{
     background-size: cover;
-    background-position: center;
+    background-image: url(background_main.webp);
+}
+.projets{
+    background-size: cover;
+    background-image: url(background_projets.avif);
 }
 
 header {
