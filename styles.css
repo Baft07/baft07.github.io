@@ -6,11 +6,6 @@ body {
     background-size: cover;
     text-size-adjust: 100%;
 }
-
-.home{
-    background-size: cover;
-    background-image: url(background_main.png);
-}
 .projets{
     background-size: cover;
     background-image: url(background_projets.png);
