@@ -149,6 +149,6 @@ main {
     .home {
         background-size: cover;
         height: 100vh;
-        background-image: url(background_main_mobile.png);
+        background-image: url(background_main.png);
     }
 }
