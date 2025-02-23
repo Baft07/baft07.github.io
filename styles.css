@@ -139,7 +139,7 @@ main {
         flex-wrap: wrap;
         font-size: 1em;
         padding: 15px;
-        justify-content: left;
+        justify-content: center;
     }
 
     nav a {
