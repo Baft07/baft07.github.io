@@ -120,11 +120,13 @@ main {
 
 @media (max-width: 480px) {
     nav {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
     }
 
     nav a {
-        margin: 5px 0;
+        margin: 5px;
+        flex: 1 1 auto;
     }
 
     .clickable-box {
@@ -144,9 +146,9 @@ main {
         height: 30%;
     }
     
-    .home{
+    .home {
         background-size: cover;
-        height: 100%;
+        height: 100vh;
         background-image: url(background_main_mobile.png);
     }
 }
