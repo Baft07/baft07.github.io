@@ -126,6 +126,8 @@ main {
         justify-conent: left;
         flex-direction: row;
         flex-wrap: wrap;
+        font-size: 1em;
+        padding: 15px;
     }
 
     nav a {
