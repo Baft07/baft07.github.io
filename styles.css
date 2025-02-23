@@ -9,11 +9,11 @@ body {
 
 .home{
     background-size: cover;
-    background-image: url(background_main.webp);
+    background-image: url(background_main.png);
 }
 .projets{
     background-size: cover;
-    background-image: url(background_projets.avif);
+    background-image: url(background_projets.png);
 }
 
 header {
