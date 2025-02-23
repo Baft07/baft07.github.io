@@ -150,5 +150,6 @@ main {
         background-size: cover;
         height: 100vh;
         background-image: url(background_main.png);
+        background-attachment: fixed;
     }
 }
