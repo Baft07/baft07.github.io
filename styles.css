@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background-repeat: no-repeat;
-    background-size: cover;
+    
     text-size-adjust: 100%;
 }
 
@@ -11,12 +11,14 @@ body {
     background: linear-gradient(to bottom, #000000, #00008b);
     background-size: cover ;
     background-attachment: fixed;
+    background-size: cover;
 }
 
 .projets {
     background: linear-gradient(to bottom,#00008b ,#000000);
     background-size: cover ;
     background-attachment: fixed;
+    background-size: cover;
 }
 
 header {
@@ -94,6 +96,7 @@ main {
 .clickable-box:hover {
     background-color: #333;
     color: #ffffff;
+    box-shadow: 0 0 10px #000000;
 }
 
 .logo_instagram {
@@ -150,7 +153,7 @@ main {
         height: 100px;
         font-size: 20px;
         line-height: 100px;
-        border-radius: 25%;
+        border-radius: 5%;
     }
 
     .logo { 
