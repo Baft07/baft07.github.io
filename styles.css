@@ -128,6 +128,7 @@ main {
 
 @media (max-width: 480px) {
     nav {
+        justify-conent: left;
         flex-direction: row;
         flex-wrap: wrap;
     }
