@@ -57,6 +57,14 @@ main {
     height: 150px;
 }
 
+.logo_html { 
+    display: inline-block;
+    margin: 10px;
+    vertical-align: middle;
+    width: 150px;
+    height: 150px;
+}
+
 .container {
     display: flex;
     justify-content: space-between;
