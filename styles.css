@@ -134,6 +134,8 @@ main {
     nav {
         flex-direction: row;
         flex-wrap: wrap;
+        font-size: 1em;
+        padding: 15px;
     }
 
     nav a {
