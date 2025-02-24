@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tri Fusion</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="projets">
+    <header>
+        <nav>
+            <div>
+                <a href="projets.html">Projets</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <u style="color: aliceblue;"><h1 style="text-align: center; color: rgb(221, 239, 255); font-size: 400%;">Tri Fusion</h1></u>
+        <div style="border: 2px solid rgb(221, 239, 255); padding: 10px; margin: 20px;">
+            <p style="text-align: left; color: rgb(221, 239, 255); font-size: 150%; margin: 0 20px;">
+                Le tri Fusion est un algorithme de tri récursif basé sur le principe de diviser pour régner.
+                Il consiste à diviser le tableau en deux parties égales, trier ces deux parties, puis les fusionner,
+                et ce jusqu'à obtenir des tableau de taille 1. La fusion des deux parties triées se fait en comparant 
+                les éléments des deux parties et en les plaçant dans un tableau résultat. Cet algorithme est 
+                très efficace pour trier des tableaux de grande taille.
+            </p>
+        </div>
+        <a class="telechargement" href ="python/tri_fusion.py" download="tri_fusion.py">Fichier python Tri Fusion</a>
+        <pre class="code">
+            def fusion(tab1 : list, tab2 : list) -> list:
+                """
+                Prend en argument 2 listes triées et qui renvoie une liste contenant les
+                éléments des 2 listes triés
+                """
+                idx1 = 0 #index qui parcours tab1
+                idx2 = 0 #index qui parcours tab2
+
+                tab_final = [] #liste qui contiendra les éléments de tab1 et tab2 triés
+
+                while idx1 < len(tab1) and idx2 < len(tab2):
+                    if tab1[idx1] < tab2[idx2]:
+                        tab_final += [tab1[idx1]]
+                        idx1 += 1
+                    else :
+                        tab_final += [tab2[idx2]]
+                        idx2 += 1
+                """
+                une fois qu'une des deux liste initiale a été complètement parcouruel on
+                ajoute ce qu'il reste de l'autre liste
+                """
+            ##    tab_final += [tab1[i] for i in range(idx1,len(tab1))]         une alternative
+            ##    tab_final += [tab2[i] for i in range(idx2,len(tab2))]
+
+                while idx1 < len(tab1):
+                    tab_final += [tab1[idx1]]
+                    idx1 += 1
+                while idx2 < len(tab2):
+                    tab_final += [tab2[idx2]]
+                    idx2 += 1
+
+                return tab_final
+        </pre>
+    </main>
+</body>
+</html>

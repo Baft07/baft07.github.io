@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tri Insertion</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="projets">
+    <header>
+        <nav>
+            <div>
+                <a href="projets.html">Projets</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <u style="color: aliceblue;"><h1 style="text-align: center; color: rgb(221, 239, 255); font-size: 400%;">Tri Insertion</h1></u>
+        <div style="border: 2px solid rgb(221, 239, 255); padding: 10px; margin: 20px;">
+            <p style="text-align: left; color: rgb(221, 239, 255); font-size: 150%; margin: 0 20px;">
+                Le tri par Insertion est un algorithme de tri qui consiste à insérer un élément à sa place dans un tableau trié.
+                Cet algorithme est basé sur la construction d'une liste triée à partir d'une liste non triée.
+            </p>
+        </div>
+        <a class="telechargement" href ="python/tri_insertion.py" download="tri_insertion.py">Fichier python Tri Insertion</a>
+        <pre class="code">
+            def tri_insertion(tab : list) :
+                for i in range(1,len(tab)):
+                    val_à_inserer = tab[i]
+                    j = i-1
+                    while tab[j] > val_à_inserer and j >=0 :
+                        tab[j+1] = tab[j]
+                        j -= 1
+                    tab[j+1] = val_à_inserer
+                return(tab)
+        </pre>
+    </main>
+</body>
+</html>

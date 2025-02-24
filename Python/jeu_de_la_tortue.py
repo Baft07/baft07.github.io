@@ -1,0 +1,324 @@
+
+from numpy import *
+from turtle import*
+from random import*
+
+#permet d'afficher plus rapidement le damier
+screen = Screen()
+tracer(0)
+
+# Construction du damier en matrice
+damier = zeros((20, 20), dtype=int)
+# Damier à remplir à la main
+damier[:,19]=[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+damier[:,18]=[1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,1]
+damier[:,17]=[1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1]
+damier[:,16]=[1,0,1,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1]
+damier[:,15]=[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,1]
+damier[:,14]=[1,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,1]
+damier[:,13]=[1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,1,1]
+damier[:,12]=[1,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,1,1,1]
+damier[:,11]=[1,1,0,0,0,0,0,0,1,1,1,0,0,1,0,0,0,0,1,1]
+damier[:,10]=[1,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,1,1]
+damier[:,9] =[1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,1,1]
+damier[:,8] =[1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,0,0,1]
+damier[:,7] =[1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1]
+damier[:,6] =[1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]
+damier[:,5] =[1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1]
+damier[:,4] =[1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1]
+damier[:,3] =[1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1]
+damier[:,2] =[1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1]
+damier[:,1] =[1,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,1]
+damier[:,0] =[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+
+#choix case départ
+#écrit en dehors d'une foncion pour avoir une variable globale
+a=randint(0,19)
+b=randint(0,19)
+while damier[a,b] != 0:
+    a=randint(0,19)
+    b=randint(0,19)
+
+#fontion our l'initialisaton du départ
+
+def depart():
+    #initialisation de la position de départ
+    t1.penup()
+    t1.goto(-200,-200)
+    t1.pendown()
+
+    #deplacement jusqu'à de la case de départ
+    t1.penup()
+    t1.setheading(0)
+    t1.forward(20*a)
+    t1.left(90)
+    t1.forward(20*b)
+    t1.pendown()
+    t1.begin_fill()
+    t1.color('green')
+
+    #coloriage de la case de départ
+
+    for _ in range(4):
+        t1.forward(20)
+        t1.left(90)
+
+    t1.end_fill()
+
+#choix de la case d'arrivée
+#écrit en dehors d'une foncion pour avoir une variable globale
+
+arrivee_possibles = [[6 ,3] ,[15 ,3] ,[1 ,4] ,[1 ,6] ,[1 ,13] ,[1 ,15] ,[3 ,18] ,[3 ,12] ,[3 ,6] ,[7 ,15] ,[5 ,18] ,[8 ,18] ,[8 ,6] ,[10 ,7] ,[11 ,14] ,[11 ,17] ,[13 ,17] ,[14 ,18] ,[13 ,8] ,[14 ,6],[14 ,15] ,[15 ,3] ,[15 ,14] ,[16 ,7] ,[16 ,15] ,[18 ,4] ,[18 ,6] ,[18 ,11] ,[18 ,13] ,[17 ,12],[12,7]]
+arrivee = arrivee_possibles[randint(0,29)]
+
+#vérification que l'arrivée est bien sur une case blanche
+while damier[arrivee[0],arrivee[1]] != 0:
+    arrivee = arrivee_possibles[randint(0,29)]
+
+#fontion our l'initialisaton de l'arrivée
+def fin():
+    #initialisation de la position de départ
+    t1.penup()
+    t1.goto(-200,-200)
+    t1.pendown()
+
+    #déplacement jusqu'à la case d'arrivée tirer plus tôt
+
+    t1.penup()
+    t1.setheading(0)
+    t1.forward(20*arrivee[1])
+    t1.left(90)
+    t1.forward(20*arrivee[0])
+    t1.pendown()
+
+    #coloriage de la case
+
+    t1.begin_fill()
+    t1.color('red')
+    for _ in range(4):
+        t1.forward(20)
+        t1.left(90)
+    t1.end_fill()
+
+#fonction pour center la tortue et changer sa couleur en bleu pour tracer le chemin
+
+def centrer():
+    t1.showturtle()
+    t1.fd(10)
+    t1.left(90)
+    t1.fd(10)
+    t1.color('blue')
+
+
+#initialisation de la vitesse et de la fenêtre d'affichage
+speed(0)
+setup(600,600)
+setheading(90)
+
+#création du terrain
+penup()
+x=-200
+goto(x,-200)
+pendown()
+for i in range(0,20):
+    for j in range(0,20):
+        if damier[i,j] == 1:
+            begin_fill()
+            for _ in range(4):
+                forward(20)
+                left(90)
+            end_fill()
+        elif damier[i,j] == 0:
+            for _ in range(4):
+                forward(20)
+                left(90)
+        forward(20)
+    x=x+20
+    penup()
+    goto(x,-200)
+    pendown()
+
+#masquer la 1ere tortue
+hideturtle()
+
+#creation de la deuxième tortue
+t1=Turtle()
+t1.hideturtle()
+t1.speed(0)
+
+#iitialisation de l'arriver
+
+fin()
+
+#initialisation départ
+
+depart()
+
+#center la tortue
+
+centrer()
+
+#affichage damier
+
+screen.update()
+tracer(1)
+
+#demande de validation
+
+validation = input("Taper OK pour valider la configuration et N pour annuler : ")
+
+while validation != "OK":
+    #effaçage du départ et de l'arrivée
+    t1.reset()
+    #si validation demande -> change le départ et l'arrivée
+    arrivee_possibles = [[6 ,3] ,[15 ,3] ,[1 ,4] ,[1 ,6] ,[1 ,13] ,[1 ,15] ,[3 ,18] ,[3 ,12] ,[3 ,6] ,[7 ,15] ,[5 ,18] ,[8 ,18] ,[8 ,6] ,[10 ,7] ,[11 ,14] ,[11 ,17] ,[13 ,17] ,[14 ,18] ,[13 ,8] ,[14 ,6],[14 ,15] ,[15 ,3] ,[15 ,14] ,[16 ,7] ,[16 ,15] ,[18 ,4] ,[18 ,6] ,[18 ,11] ,[18 ,13] ,[17 ,12],[12,7]]
+    arrivee = arrivee_possibles[randint(0,29)]
+    while damier[arrivee[0],arrivee[1]] != 0:
+        arrivee = arrivee_possibles[randint(0,29)]
+    fin()
+    a=randint(0,19)
+    b=randint(0,19)
+    while damier[a,b] != 0:
+        a=randint(0,19)
+        b=randint(0,19)
+    depart()
+    centrer()
+    validation = input("Taper OK pour valider la configuration et N pour annuler : ")
+
+#initialisation des instructions
+
+def instruction():
+
+    print("N pour se diriger vers le nord")
+    print("S pour se diriger vers le sud")
+    print("E pour se diriger vers le est")
+    print("O pour se diriger vers le ouest")
+    print("Exemple de configuration : NOSOSON")
+
+# explication des instructions
+
+instruction()
+
+#recupération des instructions
+
+commande = str(input("enter une série de commande : "))
+l=list(commande)
+n=len(l)
+
+#execution des instrutions
+
+for i in range (0,n):
+    if str(l[i]) == 'N':
+        while damier[a,b+1] != 1:
+            b = b+1
+            t1.goto(-200+20*a-10,-200+20*b+10)
+    elif str(l[i]) == 'O':
+        while damier[a-1,b] != 1:
+            a = a-1
+            t1.goto(-200+20*a-10,-200+20*b+10)
+    elif str(l[i]) == 'S':
+        while damier[a,b-1] != 1:
+            b = b-1
+            t1.goto(-200+20*a-10,-200+20*b+10)
+    elif str(l[i]) == 'E':
+        while damier[a+1,b] != 1:
+            a = a+1
+            t1.goto(-200+20*a-10,-200+20*b+10)
+
+#vérification que la tortue est sur la case d'arrivée
+if a!= arrivee[1] and b != arrivee[0]:
+    #si elle n'est pas sur l'arrivée le jouer perd
+    print("PERDU !")
+else :
+    #si elle est sur l'arrivée le jouer gagne
+    print("GAGNER !")
+
+#demander au joueur si il veut rejouer
+
+rejouer = input("voulez vous rejouer ? Si oui taper O sinon taper N. ")
+
+#analyse de la réponse
+
+if rejouer == "N":
+    #fin du jeu
+    exit()
+elif rejouer == "O":
+    #rejouer au jeu
+    while rejouer == "O":
+        #reset du départ, de l'arrivée et du chemin
+        t1.reset()
+        #choix de l'arrivée
+        arrivee_possibles = [[6 ,3] ,[15 ,3] ,[1 ,4] ,[1 ,6] ,[1 ,13] ,[1 ,15] ,[3 ,18] ,[3 ,12] ,[3 ,6] ,[7 ,15] ,[5 ,18] ,[8 ,18] ,[8 ,6] ,[10 ,7] ,[11 ,14] ,[11 ,17] ,[13 ,17] ,[14 ,18] ,[13 ,8] ,[14 ,6],[14 ,15] ,[15 ,3] ,[15 ,14] ,[16 ,7] ,[16 ,15] ,[18 ,4] ,[18 ,6] ,[18 ,11] ,[18 ,13] ,[17 ,12],[12,7]]
+        arrivee = arrivee_possibles[randint(0,29)]
+        #vérification que l'arrivée est bien sur une case blanche
+        while damier[arrivee[0],arrivee[1]] != 0:
+            arrivee = arrivee_possibles[randint(0,29)]
+        #traçage de l'arrivée
+        fin()
+        #initialisation du départ
+        a=randint(0,19)
+        b=randint(0,19)
+        #vérification que le départ est bien sur une case blanche
+        while damier[a,b] != 0:
+            a=randint(0,19)
+            b=randint(0,19)
+        #traçage du départ
+        depart()
+        #centrage de la tortue
+        centrer()
+        #demande de validation
+        validation = input("Taper OK pour valider la configuration et N pour annuler : ")
+        while validation != "OK":
+            #effaçage du départ et de l'arrivée
+            t1.reset()
+            #si validation demande -> change le départ et l'arrivée
+            arrivee_possibles = [[6 ,3] ,[15 ,3] ,[1 ,4] ,[1 ,6] ,[1 ,13] ,[1 ,15] ,[3 ,18] ,[3 ,12] ,[3 ,6] ,[7 ,15] ,[5 ,18] ,[8 ,18] ,[8 ,6] ,[10 ,7] ,[11 ,14] ,[11 ,17] ,[13 ,17] ,[14 ,18] ,[13 ,8] ,[14 ,6],[14 ,15] ,[15 ,3] ,[15 ,14] ,[16 ,7] ,[16 ,15] ,[18 ,4] ,[18 ,6] ,[18 ,11] ,[18 ,13] ,[17 ,12],[12,7]]
+            arrivee = arrivee_possibles[randint(0,29)]
+            while damier[arrivee[0],arrivee[1]] != 0:
+                arrivee = arrivee_possibles[randint(0,29)]
+            fin()
+            a=randint(0,19)
+            b=randint(0,19)
+            while damier[a,b] != 0:
+                a=randint(0,19)
+                b=randint(0,19)
+            depart()
+            centrer()
+            validation = input("Taper OK pour valider la configuration et N pour annuler : ")
+
+        # explication des instructions
+        instruction()
+        #recupération des instructions
+        commande = str(input("enter une série de commande : "))
+        l=list(commande)
+        n=len(l)
+        #execution des instrutions
+        for i in range (0,n):
+            if str(l[i]) == 'N':
+                while damier[a,b+1] != 1:
+                    b = b+1
+                    t1.goto(-200+20*a-10,-200+20*b+10)
+            elif str(l[i]) == 'O':
+                while damier[a-1,b] != 1:
+                    a = a-1
+                    t1.goto(-200+20*a-10,-200+20*b+10)
+            elif str(l[i]) == 'S':
+                while damier[a,b-1] != 1:
+                    b = b-1
+                    t1.goto(-200+20*a-10,-200+20*b+10)
+            elif str(l[i]) == 'E':
+                while damier[a+1,b] != 1:
+                    a = a+1
+                    t1.goto(-200+20*a-10,-200+20*b+10)
+
+#vérification que la tortue est sur la case d'arrivée
+        if a!= arrivee[1] and b != arrivee[0]:
+            print(damier[a,b],damier[arrivee[1],arrivee[0]])
+            print("PERDU !")
+        else :
+            print("GAGNER !")
+
+#demande au joueur si il veut rejouer
+        rejouer = input("voulez vous rejouer ? Si oui taper O sinon taper N. ")
+
+exitonclick()
